@@ -1,4 +1,5 @@
 import 'package:exa_task/models/nota.dart';
+import 'package:exa_task/priority_custom_icons_icons.dart';
 import 'package:exa_task/services/note.service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -109,16 +110,33 @@ class _HomeState extends State<Home> {
                     padding: const EdgeInsets.all(20),
                     child: Row(
                       children: [
-                        Text(
-                          notes[index]
-                              .deadline
-                              .toIso8601String()
-                              .substring(0, 10),
+                        Row(
+                          children: [
+                            const Padding(
+                              padding: EdgeInsets.only(right: 5),
+                              child: Icon(Icons.schedule),
+                            ),
+                            Text(
+                              notes[index]
+                                  .deadline
+                                  .toIso8601String()
+                                  .substring(0, 10),
+                            ),
+                          ],
                         ),
                         const Spacer(),
-                        Text(
-                          notes[index].priority,
-                          style: const TextStyle(fontWeight: FontWeight.bold),
+                        Row(
+                          children: [
+                            Text(
+                              notes[index].priority,
+                              style:
+                                  const TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 5),
+                              child: customIcon(notes[index].priority),
+                            ),
+                          ],
                         ),
                       ],
                     ),
@@ -159,4 +177,32 @@ class _HomeState extends State<Home> {
           childCount: notes.length,
         ),
       );
+
+  Widget customIcon(String prioritySel) {
+    if (prioritySel == 'Low') {
+      return Icon(
+        PriorityCustomIcons.low,
+        size: 18,
+        color: Colors.blue[800],
+      );
+    } else if (prioritySel == 'Medium') {
+      return Icon(
+        PriorityCustomIcons.medium,
+        size: 18,
+        color: Colors.green[800],
+      );
+    } else if (prioritySel == 'High') {
+      return Icon(
+        PriorityCustomIcons.high,
+        size: 18,
+        color: Colors.orange[800],
+      );
+    } else {
+      return Icon(
+        PriorityCustomIcons.asap,
+        size: 18,
+        color: Colors.red[800],
+      );
+    }
+  }
 }
