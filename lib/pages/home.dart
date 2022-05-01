@@ -1,6 +1,7 @@
 import 'package:exa_task/models/nota.dart';
 import 'package:exa_task/priority_custom_icons_icons.dart';
 import 'package:exa_task/services/note.service.dart';
+import 'package:exa_task/utils/palette.utils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
@@ -88,7 +89,9 @@ class _HomeState extends State<Home> {
           (context, index) {
             final tile = pattern[index % pattern.length];
             return Container(
-              color: Colors.amber,
+              decoration: BoxDecoration(
+                gradient: getRandomGradient(index),
+              ),
               width: (tile.aspectRatio * 100),
               height: 100,
               child: Column(
