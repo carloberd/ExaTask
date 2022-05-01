@@ -383,6 +383,22 @@ class _NewNoteState extends State<NewNote> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
+                    Padding(
+                      padding: const EdgeInsets.only(right: 5),
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          primary: const Color(0xff353334),
+                          side: const BorderSide(
+                            width: 1.0,
+                            color: Colors.blue,
+                          ),
+                        ),
+                        onPressed: () {
+                          Navigator.pop(context, false);
+                        },
+                        child: const Text('Annulla'),
+                      ),
+                    ),
                     ElevatedButton(
                       onPressed: () async {
                         bool res = validateForm();
