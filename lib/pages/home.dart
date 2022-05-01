@@ -1,6 +1,7 @@
 import 'package:exa_task/models/nota.dart';
 import 'package:exa_task/priority_custom_icons_icons.dart';
 import 'package:exa_task/services/note.service.dart';
+import 'package:exa_task/utils/invert_date.util.dart';
 import 'package:exa_task/utils/palette.utils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -120,10 +121,12 @@ class _HomeState extends State<Home> {
                               child: Icon(Icons.schedule),
                             ),
                             Text(
-                              notes[index]
-                                  .deadline
-                                  .toIso8601String()
-                                  .substring(0, 10),
+                              invertDate(
+                                notes[index]
+                                    .deadline
+                                    .toIso8601String()
+                                    .substring(0, 10),
+                              ),
                             ),
                           ],
                         ),
