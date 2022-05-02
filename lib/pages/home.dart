@@ -91,6 +91,9 @@ class _HomeState extends State<Home> {
             final tile = pattern[index % pattern.length];
             return Container(
               decoration: BoxDecoration(
+                borderRadius: const BorderRadius.all(
+                  Radius.circular(5),
+                ),
                 gradient: getRandomGradient(index),
               ),
               width: (tile.aspectRatio * 100),
