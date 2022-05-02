@@ -110,7 +110,11 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 10),
+                    padding: const EdgeInsets.only(
+                      top: 10,
+                      left: 2,
+                      right: 2,
+                    ),
                     child: Text(notes[index].description),
                   ),
                   Padding(
